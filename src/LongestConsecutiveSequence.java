@@ -4,32 +4,31 @@ public class LongestConsecutiveSequence {
 
     public static void main(String[] args) {
 
-        int[] numbers = {100,4,200,1,3,2};
+        int[] nums = {1,0,1,2};
 
-        if (numbers.length == 0) {
-            System.out.println(0);
-            return;
+        Set<Integer> numSet = new HashSet<>();
+
+        for (int num : nums) {
+            numSet.add(num);
         }
 
-        Arrays.sort(numbers);
+        int longestStreak = 0;
 
-        int streak = 1;
-        int longestStreak = 1;
+        for (int num : nums) {
 
-        for (int i = 1; i < numbers.length; i++) {
+            // if num-1 doesnt exist num is the beginning of a sequence
+            if (!numSet.contains(num-1)) {
+                int currentNum = num;
+                int currentStreak = 1;
 
-            if (numbers[i] == numbers[i-1]) {
-                continue;
-            }
+                // keeps cheking if the next consecutive number exists
+                while (numSet.contains(currentNum+1)) {
+                    currentNum += 1;
+                    currentStreak +=1;
+                }
 
-            if (numbers[i] == numbers[i-1]+1) {
-                streak++;
-            } else {
-                streak = 1;
-            }
-
-            if (streak >longestStreak) {
-                longestStreak = streak;
+                // keeps the largest sequence found so far
+                longestStreak = Math.max(longestStreak, currentStreak);
             }
         }
 
