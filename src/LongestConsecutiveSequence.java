@@ -4,7 +4,12 @@ public class LongestConsecutiveSequence {
 
     public static void main(String[] args) {
 
-        int[] numbers = {1,0,1,2};
+        int[] numbers = {100,4,200,1,3,2};
+
+        if (numbers.length == 0) {
+            System.out.println(0);
+            return;
+        }
 
         Arrays.sort(numbers);
 
