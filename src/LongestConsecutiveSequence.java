@@ -4,7 +4,7 @@ public class LongestConsecutiveSequence {
 
     public static void main(String[] args) {
 
-        int[] nums = {1,0,1,2};
+        int[] nums = {100,4,200,1,3,2};
 
         Set<Integer> numSet = new HashSet<>();
 
@@ -14,7 +14,7 @@ public class LongestConsecutiveSequence {
 
         int longestStreak = 0;
 
-        for (int num : nums) {
+        for (int num : numSet) {
 
             // if num-1 doesnt exist num is the beginning of a sequence
             if (!numSet.contains(num-1)) {
