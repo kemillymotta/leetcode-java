@@ -13,8 +13,8 @@ public class LongestConsecutiveSequence {
 
         Arrays.sort(numbers);
 
-        int sequence = 1;
-        int longestSequence = 1;
+        int streak = 1;
+        int longestStreak = 1;
 
         for (int i = 1; i < numbers.length; i++) {
 
@@ -23,16 +23,16 @@ public class LongestConsecutiveSequence {
             }
 
             if (numbers[i] == numbers[i-1]+1) {
-                sequence++;
+                streak++;
             } else {
-                sequence = 1;
+                streak = 1;
             }
 
-            if (sequence>longestSequence) {
-                longestSequence = sequence;
+            if (streak >longestStreak) {
+                longestStreak = streak;
             }
         }
 
-        System.out.println(longestSequence);
+        System.out.println(longestStreak);
     }
 }
