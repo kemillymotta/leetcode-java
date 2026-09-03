@@ -5,15 +5,18 @@ public class BestTimeToBuyAndSellStock {
         int[] prices = {7,1,5,3,6,4};
         int maxProfit = 0;
 
+        int min = prices[0];
+
         for (int i = 0; i < prices.length; i++) {
 
-            for(int j = i + 1; j < prices.length; j++) {
+            if(prices[i] < min) {
+                min = prices[i];
+            }
 
-                int profit = prices[j] - prices[i];
+            int profit = prices[i] - min;
 
-                if(profit > maxProfit) {
-                    maxProfit = profit;
-                }
+            if (profit > maxProfit) {
+                maxProfit = profit;
             }
         }
 
